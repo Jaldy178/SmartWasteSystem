@@ -1,0 +1,27 @@
+# === PHP Projects ===
+*.log
+*.sql
+*.env
+.env.*
+
+# === XAMPP, OS and Editor-specific Files ===
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+node_modules/
+vendor/
+
+# === Local Includes or Secrets ===
+includes/db_connect.php
+
+# === Backup or cache files ===
+*.bak
+*.cache
+*.tmp
+*.swp
+
+# === System-specific files ===
+__MACOSX/
+xampp/
+htdocs/
