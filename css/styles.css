@@ -1,103 +1,113 @@
-/* General Page Styling */
-body {
-    background: linear-gradient(135deg, #eef2f3, #ffffff);
-    font-family: 'Inter', 'Segoe UI', sans-serif;
+/* --- Base Reset & Defaults --- */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: #f7f9fc;
     color: #333;
+    line-height: 1.6;
+    padding-bottom: 40px;
 }
 
-/* Container Styling */
-.container {
-    margin-top: 80px;
-    max-width: 600px;
-    padding: 0 15px;
-}
-
-/* Login Card */
-.card-style {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 40px 30px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-}
-.card-style:hover {
-    transform: translateY(-2px);
-}
-
-/* Headings */
-h2 {
-    font-size: 28px;
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-/* Form Labels and Inputs */
-.form-label {
-    font-weight: 500;
-    margin-bottom: 6px;
-    color: #4a4a4a;
-}
-
-.form-control {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px 12px;
-    font-size: 15px;
-    transition: border-color 0.3s ease;
-}
-
-.form-control:focus {
-    border-color: #00796b;
-    box-shadow: 0 0 0 4px rgba(0, 121, 107, 0.2);
-    outline: none;
-}
-
-/* Button Styling */
-.btn-primary {
+/* --- Header and Containers --- */
+.page-header {
     background-color: #00796b;
-    border: none;
-    border-radius: 8px;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: 500;
+    color: white;
+    padding: 15px 25px;
+    font-size: 22px;
+    font-weight: 600;
+}
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* --- Cards and Modules --- */
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+    margin-bottom: 30px;
+}
+
+/* --- Tables (for schedules, reports, inventory etc.) --- */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.table th, .table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+.table th {
+    background-color: #f1f1f1;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    background-color: #00796b;
     color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
     transition: background-color 0.3s ease;
 }
-
-.btn-primary:hover {
+.btn:hover {
     background-color: #005a4f;
 }
 
-/* Alert Styling */
+/* --- Alerts --- */
 .alert {
-    padding: 12px 20px;
+    padding: 12px 18px;
     border-radius: 8px;
     margin-bottom: 20px;
-    font-size: 15px;
+    font-size: 14px;
 }
-
 .alert-success {
     background-color: #d4edda;
     color: #256029;
 }
-
-.alert-danger {
+.alert-error {
     background-color: #f8d7da;
     color: #721c24;
 }
 
-/* Links */
-a {
-    color: #00796b;
-    text-decoration: none;
-    font-weight: 500;
+/* --- Form Fields --- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: #00796b;
+    box-shadow: 0 0 0 4px rgba(0, 121, 107, 0.1);
+    outline: none;
 }
 
-a:hover {
-    text-decoration: underline;
-    color: #005a4f;
+/* --- Footer --- */
+footer {
+    background-color: #00796b;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
