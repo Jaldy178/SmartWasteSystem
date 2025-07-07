@@ -1,4 +1,4 @@
-/* --- Base Reset & Defaults --- */
+/* --- Base Reset & Global Defaults --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,108 +6,156 @@
 }
 body {
     font-family: 'Inter', 'Segoe UI', sans-serif;
-    background-color: #f7f9fc;
+    background-color: #f4f7fc;
     color: #333;
     line-height: 1.6;
-    padding-bottom: 40px;
 }
 
-/* --- Header and Containers --- */
-.page-header {
-    background-color: #00796b;
-    color: white;
-    padding: 15px 25px;
-    font-size: 22px;
-    font-weight: 600;
-}
+/* --- Container --- */
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-/* --- Cards and Modules --- */
-.card {
-    background-color: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
-    margin-bottom: 30px;
+/* --- Headings --- */
+h3 {
+    font-size: 28px;
+    color: #263238;
+    font-weight: 600;
 }
-
-/* --- Tables (for schedules, reports, inventory etc.) --- */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-.table th, .table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-}
-.table th {
-    background-color: #f1f1f1;
+h4 {
+    font-size: 20px;
+    color: #37474f;
+    font-weight: 500;
+    margin-bottom: 16px;
 }
 
 /* --- Buttons --- */
 .btn {
-    display: inline-block;
-    background-color: #00796b;
-    color: #fff;
+    font-size: 14px;
     padding: 10px 16px;
     border-radius: 8px;
     font-weight: 500;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
-.btn:hover {
+
+.btn-primary {
+    background-color: #00796b;
+    color: #fff;
+    border: none;
+}
+.btn-primary:hover {
     background-color: #005a4f;
+    transform: scale(1.03);
+}
+
+.btn-secondary {
+    background-color: #546e7a;
+    color: #fff;
+    border: none;
+}
+.btn-secondary:hover {
+    background-color: #455a64;
+    transform: scale(1.03);
+}
+
+.btn-danger {
+    background-color: #c62828;
+    color: #fff;
+    border: none;
+}
+.btn-danger:hover {
+    background-color: #b71c1c;
+    transform: scale(1.03);
 }
 
 /* --- Alerts --- */
 .alert {
-    padding: 12px 18px;
+    padding: 14px 20px;
     border-radius: 8px;
     margin-bottom: 20px;
-    font-size: 14px;
-}
-.alert-success {
-    background-color: #d4edda;
-    color: #256029;
-}
-.alert-error {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-/* --- Form Fields --- */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select,
-textarea {
-    width: 100%;
-    padding: 10px 14px;
-    margin-bottom: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
     font-size: 15px;
 }
-input:focus, select:focus, textarea:focus {
-    border-color: #00796b;
-    box-shadow: 0 0 0 4px rgba(0, 121, 107, 0.1);
-    outline: none;
+
+.alert-success {
+    background-color: #dff0d8;
+    color: #2e7d32;
 }
 
-/* --- Footer --- */
-footer {
-    background-color: #00796b;
-    color: white;
-    padding: 12px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
+.alert-danger {
+    background-color: #f8d7da;
+    color: #b71c1c;
+}
+
+.alert-info {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+/* --- Table Styling --- */
+.table {
     width: 100%;
+    background-color: #fff;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.table th {
+    background-color: #37474f;
+    color: #ffffff;
+    padding: 14px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.table td {
+    padding: 14px;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f1f1f1;
+}
+
+/* --- Badge Styling --- */
+.badge {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.bg-warning {
+    background-color: #ffe082 !important;
+    color: #5d4037 !important;
+}
+
+.bg-info {
+    background-color: #81d4fa !important;
+    color: #01579b !important;
+}
+
+.bg-success {
+    background-color: #aed581 !important;
+    color: #33691e !important;
+}
+
+.bg-secondary {
+    background-color: #cfd8dc !important;
+    color: #263238 !important;
+}
+
+/* --- Map Container --- */
+#routeMap {
+    border: 2px solid #90a4ae;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
