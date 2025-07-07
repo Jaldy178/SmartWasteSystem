@@ -5,7 +5,7 @@ require_once '../includes/db_connect.php';
 $email = $password = "";
 $errors = [];
 
-// If redirected from registration with success message
+// Success message after registration
 if (isset($_SESSION['message'])) {
     $success_message = $_SESSION['message'];
     unset($_SESSION['message']);
@@ -29,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->fetch();
 
             if (password_verify($password, $hashed_password)) {
-                // Correct login
                 $_SESSION['user_id'] = $user_id;
                 $_SESSION['full_name'] = $full_name;
                 $_SESSION['role'] = $role;
@@ -56,20 +55,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
-<!-- HTML -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Login - Smart Waste System</title>
+    <link rel="stylesheet" href="../css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light">
-    <div class="container mt-5">
+<body>
+    <div class="container">
         <h2 class="text-center">User Login</h2>
         <div class="row justify-content-center">
-            <div class="col-md-6 bg-white p-4 shadow rounded">
+            <div class="col-md-6 card-style">
                 <?php if (!empty($success_message)): ?>
                     <div class="alert alert-success"><?= $success_message ?></div>
                 <?php endif; ?>
