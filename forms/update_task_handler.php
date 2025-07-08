@@ -33,6 +33,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $updateReport->bind_param("si", $status_update, $report_id);
     $updateReport->execute();
 
+    //  Get resident's user ID from the report
+$getResident = $conn->prepare("SELECT user_id FROM waste_reports WHERE report_id = ?");
+$getResident->bind_param("i", $report_id);
+$getResident->execute();
+$getResident->bind_result($resident_id);
+$getResident->fetch();
+$getResident->close();
+
+// Insert notification for the resident
+$msg = "Your report has been updated to status: " . ucfirst($status_update);
+$type = "task"; // type is ENUM('system', 'task', 'report')
+$notify = $conn->prepare("INSERT INTO notifications (user_id, message, type) VALUES (?, ?, ?)");
+$notify->bind_param("iss", $resident_id, $msg, $type);
+$notify->execute();
+
+
     $_SESSION['task_success'] = "Task updated successfully.";
     header("Location: ../pages/collector/dashboard.php");
     exit;

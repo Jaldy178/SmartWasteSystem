@@ -34,6 +34,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt = $conn->prepare("INSERT INTO tasks (report_id, collector_id, status_update, notes) VALUES (?, ?, 'in_progress', '')");
     $stmt->bind_param("ii", $report_id, $collector_id);
     $stmt->execute();
+    // Notify the collector
+$notify = $conn->prepare("INSERT INTO notifications (user_id, message) VALUES (?, ?)");
+$msg = "You’ve been assigned a new collection task.";
+$notify->bind_param("is", $collector_id, $msg);
+$notify->execute();
+
 
     // Optionally update report status
     $update = $conn->prepare("UPDATE waste_reports SET status = 'in_progress' WHERE report_id = ?");
