@@ -13,6 +13,14 @@ body {
   min-height: 100vh;
 }
 
+/* --- Utility: Smooth Transitions on Everything Interactive --- */
+button,
+.btn,
+a.btn {
+  transition: all 0.3s ease-in-out;
+  will-change: transform, background-color, box-shadow;
+}
+
 /* --- Container --- */
 .container {
   max-width: 1200px;
@@ -36,7 +44,7 @@ h4 {
   margin-bottom: 12px;
 }
 
-/* --- Buttons --- */
+/* --- Buttons (Global Styles) --- */
 .btn {
   font-size: 15px;
   padding: 12px 20px;
@@ -44,35 +52,45 @@ h4 {
   font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  user-select: none;
+  outline: none;
 }
 
+/* --- Primary Button --- */
 .btn-primary {
   background: linear-gradient(to right, #34d399, #10b981);
   color: #fff;
 }
 .btn-primary:hover {
   background: linear-gradient(to right, #059669, #047857);
-  transform: translateY(-2px);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(16, 185, 129, 0.3);
 }
 
+/* --- Secondary Button --- */
 .btn-secondary {
-  background: #64748b;
+  background-color: #64748b;
   color: #fff;
 }
 .btn-secondary:hover {
-  background: #475569;
-  transform: translateY(-2px);
+  background-color: #475569;
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(100, 116, 139, 0.25);
 }
 
+/* --- Danger Button --- */
 .btn-danger {
-  background: #ef4444;
+  background-color: #ef4444;
   color: #fff;
 }
 .btn-danger:hover {
-  background: #b91c1c;
-  transform: translateY(-2px);
+  background-color: #b91c1c;
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(239, 68, 68, 0.3);
 }
 
 /* --- Alerts --- */
@@ -164,13 +182,12 @@ h4 {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.06);
 }
 
-/* --- Link Styling --- */
+/* --- Links --- */
 a {
   color: #10b981;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
-
 a:hover {
   color: #059669;
 }
