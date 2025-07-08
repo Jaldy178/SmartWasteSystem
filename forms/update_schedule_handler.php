@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../auth/login.php");
     exit;
@@ -21,9 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $stmt = $conn->prepare("UPDATE collection_schedule SET area = ?, day = ?, time = ? WHERE schedule_id = ?");
     $stmt->bind_param("sssi", $area, $day, $time, $schedule_id);
-    $stmt->execute();
 
-    $_SESSION['schedule_success'] = "Schedule updated successfully.";
+    if ($stmt->execute()) {
+        $_SESSION['schedule_success'] = "Schedule updated successfully.";
+    } else {
+        $_SESSION['schedule_error'] = "Failed to update schedule.";
+    }
+
     header("Location: ../pages/admin/schedule.php");
     exit;
 }

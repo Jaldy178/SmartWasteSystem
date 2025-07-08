@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../../auth/login.php");
     exit;
@@ -8,19 +9,22 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
 require_once '../../includes/db_connect.php';
 
 $schedule_id = $_GET['schedule_id'] ?? null;
-if (!$schedule_id) {
+
+if (!$schedule_id || !is_numeric($schedule_id)) {
+    $_SESSION['schedule_error'] = "Invalid schedule ID.";
     header("Location: schedule.php");
     exit;
 }
 
-// Get schedule
 $stmt = $conn->prepare("SELECT * FROM collection_schedule WHERE schedule_id = ?");
 $stmt->bind_param("i", $schedule_id);
 $stmt->execute();
-$schedule = $stmt->get_result()->fetch_assoc();
+$result = $stmt->get_result();
+$schedule = $result->fetch_assoc();
 
 if (!$schedule) {
-    echo "Schedule not found.";
+    $_SESSION['schedule_error'] = "Schedule not found.";
+    header("Location: schedule.php");
     exit;
 }
 ?>
@@ -35,7 +39,7 @@ if (!$schedule) {
 </head>
 <body class="bg-light">
 <div class="container mt-4">
-    <h3>Edit Schedule</h3>
+    <h3>Edit Collection Schedule</h3>
     <a href="schedule.php" class="btn btn-secondary mb-3">Back</a>
 
     <form method="POST" action="../../forms/update_schedule_handler.php">
@@ -49,9 +53,9 @@ if (!$schedule) {
             <label for="day" class="form-label">Day</label>
             <select name="day" class="form-select" required>
                 <?php
-                foreach (['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] as $day) {
-                    $selected = $day === $schedule['day'] ? "selected" : "";
-                    echo "<option value='$day' $selected>$day</option>";
+                foreach (['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] as $d) {
+                    $selected = ($d === $schedule['day']) ? "selected" : "";
+                    echo "<option value='$d' $selected>$d</option>";
                 }
                 ?>
             </select>

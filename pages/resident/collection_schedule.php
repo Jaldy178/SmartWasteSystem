@@ -17,7 +17,6 @@ $query = $conn->prepare("
 $query->execute();
 $result = $query->get_result();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,36 +26,36 @@ $result = $query->get_result();
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body class="bg-light">
-    <div class="container mt-4">
-        <h3>Waste Collection Schedule</h3>
-        <a href="dashboard.php" class="btn btn-secondary mb-3">Back to Dashboard</a>
+<div class="container mt-4">
+    <h3>Waste Collection Schedule</h3>
+    <a href="dashboardR.php" class="btn btn-secondary mb-3">Back to Dashboard</a>
 
-        <?php if ($result->num_rows > 0): ?>
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Area</th>
-                            <th>Day</th>
-                            <th>Time</th>
-                            <th>Created By</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while ($row = $result->fetch_assoc()): ?>
-                            <tr>
-                                <td><?= htmlspecialchars($row['area']) ?></td>
-                                <td><?= $row['day'] ?></td>
-                                <td><?= date('g:i A', strtotime($row['time'])) ?></td>
-                                <td><?= htmlspecialchars($row['admin_name']) ?></td>
-                            </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
-            </div>
-        <?php else: ?>
-            <div class="alert alert-info">No collection schedule available yet.</div>
-        <?php endif; ?>
-    </div>
+    <?php if ($result->num_rows > 0): ?>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th>Area</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Created By</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php while ($row = $result->fetch_assoc()): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($row['area']) ?></td>
+                        <td><?= $row['day'] ?></td>
+                        <td><?= date('g:i A', strtotime($row['time'])) ?></td>
+                        <td><?= htmlspecialchars($row['admin_name']) ?></td>
+                    </tr>
+                <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+    <?php else: ?>
+        <div class="alert alert-info">No collection schedule available yet.</div>
+    <?php endif; ?>
+</div>
 </body>
 </html>
