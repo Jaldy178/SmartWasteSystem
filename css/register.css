@@ -1,0 +1,66 @@
+/* === Body Styling === */
+body {
+    background-color: #35b73f;
+    font-family: 'Inter', sans-serif;
+    padding-top: 40px;
+    margin: 0;
+}
+
+/* === Container and Card === */
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+h2 {
+    color: #218838;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* === Registration Box === */
+.bg-white {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* === Labels and Inputs === */
+.form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.form-control,
+.form-select {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+}
+
+/* === Button Styling === */
+.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* === Links and Text === */
+a {
+    color: #218838;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* === Alert Box === */
+.alert {
+    font-size: 0.95rem;
+}

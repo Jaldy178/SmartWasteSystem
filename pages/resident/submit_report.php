@@ -57,7 +57,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'resident') {
             </div>
 
             <button type="submit" class="btn btn-primary">Submit Report</button>
-            <a href="dashboardR.php" class="btn btn-secondary ms-2">Back to Dashboard</a>
+            <a href="dashboard.php" class="btn btn-secondary ms-2">Back to Dashboard</a>
         </form>
     </div>
 

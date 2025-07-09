@@ -28,7 +28,7 @@ $result = $query->get_result();
 <body class="bg-light">
 <div class="container mt-4">
     <h3>Waste Collection Schedule</h3>
-    <a href="dashboardR.php" class="btn btn-secondary mb-3">Back to Dashboard</a>
+    <a href="dashboard.php" class="btn btn-secondary mb-3">Back to Dashboard</a>
 
     <?php if ($result->num_rows > 0): ?>
         <div class="table-responsive">

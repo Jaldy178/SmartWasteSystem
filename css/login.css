@@ -1,0 +1,74 @@
+/* === Global Styles === */
+body {
+    background-color: #e8f5e9;
+    font-family: 'Inter', sans-serif;
+    padding-top: 50px;
+}
+
+/* === Card-style container === */
+.card-style {
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+/* === Typography === */
+h2 {
+    margin-bottom: 25px;
+    color: #218838;
+    font-weight: 700;
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+}
+
+.form-control {
+    border-radius: 6px;
+    border-color: #ced4da;
+}
+
+/* === Buttons === */
+.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    border-color: #218838;
+}
+
+.btn-outline-secondary {
+    font-weight: 500;
+    color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* === Alerts === */
+.alert {
+    font-size: 0.95rem;
+}
+
+/* === Responsive Centering === */
+.container {
+    max-width: 600px;
+}
+
+/* === Links === */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
